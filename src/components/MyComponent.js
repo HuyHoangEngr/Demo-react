@@ -9,22 +9,27 @@ class MyComponent extends React.Component {
     };
 
     handleMouseOver(event) {
-        console.log(event.pageX)
+        // console.log(event.pageX)
     }
 
-    handleClick() {
+    handleClick(event) {
         console.log(">> Click me !")
-        console.log("My name is:", this.state.name);
+
+        //merge State => react class
+        this.setState({
+            name: 'Paul',
+            age: Math.floor((Math.random() * 100) + 1)
+        })
     }
 
     //JSX
     render() {
         return (
             <div>
-                My name is {this.state.name} and I'm from {this.state.address}
+                My name is {this.state.name} and I'm {this.state.age}
 
                 <button onMouseOver={this.handleMouseOver}>Hover me !</button>
-                <button onClick={this.handleClick}>Click me !</button>
+                <button onClick={(event) => { this.handleClick(event) }}>Click me !</button>
             </div>
         );
     }
