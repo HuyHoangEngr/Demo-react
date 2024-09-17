@@ -3,12 +3,24 @@ import React from "react";
 class DisplayInfor extends React.Component {
     render() {
         //destructuring array/object
-        const { age, name } = this.props;
+        const { listUsers } = this.props;
+        //object- dùng destructuring thì phần tử phải giống với phẩn tử ở Component cha
+        // console.log(typeof listUsers)
+        //const listUsers = this.props.listUsers;
         //props => viết tắt properties: tài sản cha truyền sang con
         return (
             <div>
-                <div>My name's {name}</div>
-                <div>My age's {age}</div>
+                {
+                    listUsers.map((user, index) => {
+                        return (
+                            <div key={user.id}>
+                                <div>My name's {user.name}</div>
+                                <div>My age's {user.age}</div>
+                                <hr />
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }
