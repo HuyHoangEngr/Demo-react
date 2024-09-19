@@ -25,16 +25,22 @@ class MyComponent extends React.Component {
         //DRY: don't repeat yourself
         // console.log(typeof this.state.listUsers)
         return (
-            < div >
-                <AddUserInfor
-                    handleAddNewUser={this.handleAddNewUser}
-                />
-                <br /><br />
+            <>
+                < div className='a'>
+                    <AddUserInfor
+                        handleAddNewUser={this.handleAddNewUser}
+                    />
+                    <br /><br />
 
-                <DisplayInfor
-                    listUsers={this.state.listUsers}
-                />
-            </div >
+                    <DisplayInfor
+                        listUsers={this.state.listUsers}
+                    />
+                </div >
+
+                <div className='b'>
+
+                </div>
+            </>
         );
     }
 }
