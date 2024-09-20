@@ -23,6 +23,9 @@ class MyComponent extends React.Component {
     //JSX
     render() {
         //DRY: don't repeat yourself
+        //Để check 1 biến thì console.log ngay tai đây
+        //Không nên in 1 biến trong JSX (trong hàm return phía dưới)
+        //Nếu có dùng thì dùng {JSON.Stringify(tên biến)}
         // console.log(typeof this.state.listUsers)
         return (
             <>
