@@ -22,7 +22,7 @@ class DisplayInfor extends React.Component {
         //props => viết tắt properties: tài sản cha truyền sang con
         return (
             <div className='display-info-container'>
-                <img src={logo1} />
+                {/* <img src={logo1} /> */}
                 <div>
                     <span onClick={() => { this.handleShowHide() }}>
                         {this.state.isShowListUser === true ? "Hide list users" : "Show list users"}
@@ -33,8 +33,13 @@ class DisplayInfor extends React.Component {
                         {listUsers.map((user, index) => {
                             return (
                                 <div key={user.id} className={+user.age > 18 ? "red" : "green"}>
-                                    <div>My name's {user.name}</div>
-                                    <div>My age's {user.age}</div>
+                                    <div>
+                                        <div>My name's {user.name}</div>
+                                        <div>My age's {user.age}</div>
+                                    </div>
+                                    <div>
+                                        <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
+                                    </div>
                                     <hr />
                                 </div>
                             )
