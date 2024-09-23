@@ -2,75 +2,65 @@ import React from "react";
 import './DisplayInfor.scss'
 import logo1 from './../logo.svg'
 
-class DisplayInfor extends React.Component {
+//stateless vs stateful
+// class DisplayInfor extends React.Component {
 
-    constructor(props) {
-        console.log(">>> call constructor: 1")
-        super(props);
-        //babel compiler
-        this.state = {
-            isShowListUser: true
-        }
-    }
+//     render() {
+//         console.log('>>> call me render ')
+//         //destructuring array/object
+//         const { listUsers } = this.props;
+//         //object- dùng destructuring thì phần tử phải giống với phẩn tử ở Component cha
+//         //const listUsers = this.props.listUsers;
+//         //props => viết tắt properties: tài sản cha truyền sang con
+//         return (
+//             <div className='display-info-container'>
+//                 {true &&
+//                     <>
+//                         {listUsers.map((user, index) => {
+//                             return (
+//                                 <div key={user.id} className={+user.age > 18 ? "red" : "green"}>
+//                                     <div>
+//                                         <div>My name's {user.name}</div>
+//                                         <div>My age's {user.age}</div>
+//                                     </div>
+//                                     <div>
+//                                         <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
+//                                     </div>
+//                                     <hr />
+//                                 </div>
+//                             )
+//                         })}
+//                     </>
+//                 }
+//             </div>
+//         )
+//     }
+// }
 
-    componentDidMount() {
-        console.log(">>> call me component did mount");
-        setTimeout(() => {
-            document.title = 'Eric & Hoi Dan IT';
-        }, 3000);
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('>>> call me component did update', this.props, prevProps);
-        if (this.props.listUsers !== prevProps.listUsers) {
-            if (this.props.listUsers.length === 5) {
-                alert('You got 5 users');
-            }
-        }
-    }
-
-    handleShowHide = () => {
-        this.setState({
-            isShowListUser: !this.state.isShowListUser
-        })
-    }
-
-    render() {
-        console.log('>>> call me render ')
-        //destructuring array/object
-        const { listUsers } = this.props;
-        //object- dùng destructuring thì phần tử phải giống với phẩn tử ở Component cha
-        //const listUsers = this.props.listUsers;
-        //props => viết tắt properties: tài sản cha truyền sang con
-        return (
-            <div className='display-info-container'>
-                {/* <img src={logo1} /> */}
-                <div>
-                    <span onClick={() => { this.handleShowHide() }}>
-                        {this.state.isShowListUser === true ? "Hide list users" : "Show list users"}
-                    </span>
-                </div>
-                {this.state.isShowListUser &&
-                    <>
-                        {listUsers.map((user, index) => {
-                            return (
-                                <div key={user.id} className={+user.age > 18 ? "red" : "green"}>
-                                    <div>
-                                        <div>My name's {user.name}</div>
-                                        <div>My age's {user.age}</div>
-                                    </div>
-                                    <div>
-                                        <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
-                                    </div>
-                                    <hr />
+const DisplayInfor = (props) => {
+    const { listUsers } = props;
+    return (
+        <div className='display-info-container'>
+            {true &&
+                <>
+                    {listUsers.map((user, index) => {
+                        return (
+                            <div key={user.id} className={+user.age > 18 ? "red" : "green"}>
+                                <div>
+                                    <div>My name's {user.name}</div>
+                                    <div>My age's {user.age}</div>
                                 </div>
-                            )
-                        })}
-                    </>
-                }
-            </div>
-        )
-    }
+                                <div>
+                                    <button onClick={() => props.handleDeleteUser(user.id)}>Delete</button>
+                                </div>
+                                <hr />
+                            </div>
+                        )
+                    })}
+                </>
+            }
+        </div>
+    )
 }
 
 export default DisplayInfor;
