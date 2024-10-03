@@ -20,6 +20,15 @@ body {
   }
 }
 
-// .navbar-nav .nav-link.active {
-//   color: red;
-// }
+.navbar {
+  .container {
+    z-index: 10;
+    background: none;
+  }
+}
+
+video {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
