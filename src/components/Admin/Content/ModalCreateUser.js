@@ -67,7 +67,9 @@ const ModalCreateUser = (props) => {
         data.append('role', role);
         data.append('userImage', image);
 
-        let res = await axios.post('http://localhost:8081/api/v1/participant', data)
+        // let res = await axios.post('http://localhost:8081/api/v1/participant', data)
+        let res = await axios.post('http://192.168.1.8:8081/api/v1/participant', data)
+
         console.log(">>> check res:", res.data)
         if (res.data && res.data.EC === 0) {
             toast.success(res.data.EM);
