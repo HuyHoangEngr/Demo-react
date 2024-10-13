@@ -65,6 +65,7 @@ const ModalCreateUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
+            await props.fetchListUsers(); //Goi nguoc len component cha (ManageUser) de cap nhat lai data
         }
 
         if (data && data.EC !== 0) {
