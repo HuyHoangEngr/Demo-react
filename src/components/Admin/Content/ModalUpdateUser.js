@@ -18,6 +18,7 @@ const ModalUpdateUser = (props) => {
         setImage("");
         setPreviewImage("");
         props.resetUpdateData();
+        console.log(">>>Git checkout to prod branch")
     };
 
     const handleShow = () => setShow(true);
