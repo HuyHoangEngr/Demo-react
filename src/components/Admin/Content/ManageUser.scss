@@ -45,4 +45,16 @@
             background: #dcdcdcdc;
         }
     }
+
+    .label-upload-view {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid red;
+        width: fit-content;
+        padding: 3px 10px;
+        border-radius: 5px;
+        background: #eeeeee;
+        border: none;
+    }
 }
